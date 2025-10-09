@@ -11,20 +11,24 @@ const HomeContainer = styled.section`
 `;
 
 const ServicesTitle = styled.h2`
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 4rem;
+  font-weight: 900;
   margin-bottom: 20px;
-  background: linear-gradient(45deg, #fff, #f0f0f0);
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: fadeInUp 1s ease;
+  animation: fadeInUp 1s ease, gradientShift 3s ease infinite;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
   
   span {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #ff9ff3, #54a0ff, #5f27cd, #00d2d3);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradientShift 4s ease infinite reverse;
   }
   
   @keyframes fadeInUp {
@@ -37,15 +41,23 @@ const ServicesTitle = styled.h2`
       transform: translateY(0);
     }
   }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 `;
 
 const ServicesSubtitle = styled.p`
   max-width: 700px;
   margin: 0 auto 60px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
-  font-weight: 400;
+  color: rgba(224, 230, 237, 0.9);
+  font-size: 1.3rem;
+  font-weight: 500;
   animation: fadeInUp 1s ease 0.2s both;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
 `;
 
 const ServicesContainer = styled.div`

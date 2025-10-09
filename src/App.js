@@ -19,29 +19,66 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
     min-height: 100vh;
-    color: #333;
+    color: #e0e6ed;
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
   }
 
-  /* Scrollbar Styling */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  /* Enhanced Scrollbar Styling */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 15, 35, 0.8);
+    border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 4px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 300% 300%;
+    border-radius: 6px;
+    animation: gradientShift 3s ease infinite;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #764ba2, #667eea);
+    background: linear-gradient(135deg, #ff5252, #26a69a, #2196f3, #66bb6a, #ffa726);
+    background-size: 300% 300%;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Enhanced text selection */
+  ::selection {
+    background: rgba(255, 107, 107, 0.3);
+    color: #ffffff;
+  }
+
+  ::-moz-selection {
+    background: rgba(255, 107, 107, 0.3);
+    color: #ffffff;
   }
 `;
 

@@ -46,7 +46,7 @@ const Particles = () => {
         particle.style.position = 'absolute';
         particle.style.width = '4px';
         particle.style.height = '4px';
-        particle.style.background = 'rgba(255, 255, 255, 0.3)';
+        particle.style.background = 'rgba(255, 107, 107, 0.4)';
         particle.style.borderRadius = '50%';
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';

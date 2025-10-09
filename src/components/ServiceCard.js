@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ServiceCardContainer = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
+  background: rgba(15, 15, 35, 0.6);
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 107, 107, 0.2);
+  border-radius: 25px;
   padding: 40px 30px;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   
   &::before {
     content: '';
@@ -20,18 +21,44 @@ const ServiceCardContainer = styled.div`
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 300% 300%;
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: gradientShift 3s ease infinite;
   }
   
   &:hover::before {
     left: 100%;
   }
   
+  &:hover::after {
+    opacity: 1;
+  }
+  
   &:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(255, 107, 107, 0.3);
+    border-color: rgba(78, 205, 196, 0.5);
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 `;
 
@@ -88,54 +115,109 @@ const ServiceImage = styled.div`
 `;
 
 const ServiceIcon = styled.div`
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 25px;
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #feca57, #ff9ff3, #54a0ff);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
   
   ${ServiceCardContainer}:hover & {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  i {
+    position: relative;
+    z-index: 1;
   }
 `;
 
 const ServiceTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 800;
   margin-bottom: 15px;
-  color: white;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 `;
 
 const ServiceDescription = styled.p`
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  color: rgba(224, 230, 237, 0.9);
   margin-bottom: 25px;
-  line-height: 1.6;
+  line-height: 1.7;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const ServiceButton = styled.button`
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+  background-size: 200% 200%;
   color: white;
   border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 1rem;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
   
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+    background-position: 100% 0;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(1.02);
   }
 `;
 

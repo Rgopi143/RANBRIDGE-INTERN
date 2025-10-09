@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  color: white;
+  background: rgba(15, 15, 35, 0.9);
+  backdrop-filter: blur(25px);
+  color: #e0e6ed;
   padding: 50px 20px;
   margin-top: 80px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-top: 2px solid rgba(255, 107, 107, 0.2);
   
   &::before {
     content: '';
@@ -17,8 +18,21 @@ const FooterContainer = styled.footer`
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.5), rgba(78, 205, 196, 0.5), transparent);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+    pointer-events: none;
   }
 `;
 
@@ -31,12 +45,21 @@ const FooterContent = styled.div`
 
 const FooterTitle = styled.h3`
   margin-bottom: 20px;
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 `;
 
 const FooterText = styled.p`
@@ -50,20 +73,26 @@ const FooterLinks = styled.div`
 `;
 
 const FooterLink = styled.a`
-  color: #667eea;
+  color: #ff6b6b;
   text-decoration: none;
   margin: 0 15px;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: rgba(102, 126, 234, 0.1);
+  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
   
   &:hover {
-    color: #764ba2;
-    background: rgba(102, 126, 234, 0.2);
-    transform: translateY(-2px);
+    color: #4ecdc4;
+    background: rgba(78, 205, 196, 0.2);
+    border-color: rgba(78, 205, 196, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
   }
 `;
 
