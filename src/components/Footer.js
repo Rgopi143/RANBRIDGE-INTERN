@@ -123,7 +123,7 @@ const Footer = ({ setCurrentSection }) => {
           <i className="fas fa-rocket"></i> Building careers with technology, creativity, and innovation.
         </FooterText>
         <FooterText>
-          <i className="fas fa-map-marker-alt"></i> Location: Narasaraopet, India
+          <i className="fas fa-map-marker-alt"></i> Location: T Hub Phase 2 20, Inorbit Mall Road, Vittal Rao Nagar, Madhapur, Madhapur, Telangana - 500081 India
         </FooterText>
         <FooterText>
           <i className="fas fa-envelope"></i> Email: ranbridgeserviceprivatelimited@gmail.com
