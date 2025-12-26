@@ -1,4 +1,4 @@
-# RANBRIDGE Services - React Version
+# RANBRIDGE Solutions - React Version
 
 This is a React version of the RANBRIDGE Services website, converted from the original HTML/CSS/JavaScript implementation. The website showcases internship opportunities and courses in various tech fields.
 
